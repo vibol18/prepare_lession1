@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ecommerce Test</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            top: 0;
+            height: 60px;
+            z-index: 1000;
+        }
+
+        .navbar-title {
+            font-size: 22px;
+            color: #222;
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            list-style: none;
+        }
+
+        .navbar-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+
+            padding: 8px 12px;
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .navbar-link:hover {
+            background-color: #222;
+            color: white;
+        }
+
+        /* About */
+
+        .about-section {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 8%;
+        }
+
+        .about-content {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 60px;
+        }
+
+        .about-text {
+            max-width: 750px;
+        }
+
+        .about-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .about-description {
+            font-size: clamp(32px, 5vw, 65px);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Language */
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-label {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .language-select {
+            border: none;
+            background: transparent;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Statistics */
+
+        .statistics-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 4px 6px -1px rgb(0 0 0 / 0.1),
+                0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+            border-radius: 18px;
+
+            width: 80%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            padding: 25px;
+
+            gap: 30px;
+
+            margin: -80px auto 80px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-circle {
+            background: #e503fa;
+
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+        }
+
+        .stat-number {
+            font-weight: bold;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Contact & Product */
+
+        .contact-section,
+        .product-section {
+            min-height: 100vh;
+            padding: 150px 8%;
+        }
+
+        .contact-section {
+            background: #e9edf5;
+        }
+
+        .product-section {
+            background: #dfe5ef;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                left: 10px;
+                right: 10px;
+                top: 10px;
+
+                padding: 12px 18px;
+            }
+
+            .navbar-title {
+                font-size: 18px;
+            }
+
+            .navbar-menu {
+                gap: 5px;
+            }
+
+            .navbar-link {
+                font-size: 13px;
+                padding: 6px 8px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-section {
+                padding: 120px 30px 50px;
+            }
+
+            .statistics-container {
+                width: 90%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h2 class="navbar-title">
+            Ecommerce Test
+        </h2>
+
+        <ul class="navbar-menu">
+
+            <li>
+                <a class="navbar-link" href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a class="navbar-link" href="#contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a class="navbar-link" href="#product">
+                    Product
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- About -->
+
+    <section id="about" class="about-section">
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h1 class="about-title">
+                    About
+                </h1>
+
+                <p class="about-description">
+                    Empowering developers worldwide
+                    to build a better, open web.
+                </p>
+
+            </div>
+
+            <div class="language-selector">
+
+                <p class="language-label">
+                    Theme
+                </p>
+
+                <select class="language-select">
+                    <option>English</option>
+                    <option>Khmer</option>
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Statistics -->
+
+    <div class="statistics-container">
+
+        <!-- Item 1 -->
+
+        <div class="stat-item">
+
+            <div class="stat-circle">
+                <p class="stat-number">
+                    45K
+                </p>
+            </div>
+
+            <p class="stat-label">
+                Pages of content
+            </p>
+
+        </div>
+
+
+        <!-- Item 2 -->
+
+        <div class="stat-item">
+
+            <div class="stat-circle">
+                <p class="stat-number">
+                    7
+                </p>
+            </div>
+
+            <p class="stat-label">
+                Languages
+            </p>
+
+        </div>
+
+
+        <!-- Item 3 -->
+
+        <div class="stat-item">
+
+            <div class="stat-circle">
+                <p class="stat-number">
+                    45K
+                </p>
+            </div>
+
+            <p class="stat-label">
+                Monthly pageviews
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Contact -->
+
+    <section id="contact" class="contact-section">
+
+        <h1>
+            Contact
+        </h1>
+
+        <p>
+            Contact us for more information.
+        </p>
+
+    </section>
+
+
+    <!-- Product -->
+
+    <section id="product" class="product-section">
+
+        <h1>
+            Products
+        </h1>
+
+        <p>
+            Explore our products.
+        </p>
+
+    </section>
+
+</body>
+
+</html>

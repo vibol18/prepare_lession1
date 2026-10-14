@@ -1,0 +1,49 @@
+#include<iostream>
+#include <thread>
+#include <chrono>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+#include<cmath>
+#include<algorithm>
+using namespace std;
+using namespace this_thread;
+int main(){
+    cout<<"\033[48;2;255;255;255m Hello \033[0m"<<endl;
+    //are you ready have to lern color 30-37 40-47
+    string name;
+    int a=17,b=20;
+    cout<<"a<b ="<<(a<b)<<endl;
+    swap(a,b);
+    cout<<"a<b ="<<(a<b)<<endl;
+    cout<<a<<" "<<b<<endl;
+    cerr<<"Hello from error"<<endl;
+    cin>>a>>b;
+   //31->37 
+   //40-47
+   //it has default color text or background color
+   //RGB
+   //48 = background color
+   //38 = text color
+   cout<<"Enter name";
+   cin>>name;
+   getline(cin,name);
+   //not end of line
+   cout<<sqrt(25);
+   cout<<max(20,50);
+   cout <<"\033[38;2;245;8;213m \033[38;2;255;0;0m Hello world"<<name<<" \033[0m\n";
+   cout<<"\033[48;2;245;8;213m Hello from color background \033[0m"<<endl;
+   cout<<"\033[38;2;51;255;51m Green now"<<endl;
+   cout<<"\033[38;2;255;0;255m Hello world"<<endl;
+
+   cout<<"\033[38;2;102;204;0m Please wait Thank.....!"<<endl;
+   sleep_for(chrono::seconds(2));
+   system("clear");
+   cout<<"\033[38;2;51;0;0m Helllo from brown"<<endl;
+   sleep_for(chrono::seconds(2));
+   //Red
+   sleep_for(chrono::seconds(1));
+   cout<<"\033[38;2;255;0;0m Red"<<endl;
+   //Green
+   cout<<"\033[38;2;0;255;0m Thank for waiting"<<endl;
+   //Blue
+   cout<<"\033[48;2;0;0;255m Hi My name is Vibol"<<endl;
+   cout<<"\033[48;2;255;0;127m From love u"<<endl;
+}

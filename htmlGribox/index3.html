@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech</title>
+</head>
+
+<body>
+
+    <h2>Text To Speech</h2>
+
+    <input type="text" id="text" placeholder="Enter text">
+
+    <button onclick="speak()">Speak</button>
+
+    <button onclick="stopSpeak()">Stop</button>
+
+    <script>
+
+        function speak() {
+
+            let text = document.getElementById("text").value;
+            let name = "vibol";
+            if (text.trim() === "") {
+                alert("Please enter text!");
+                return;
+            }
+            // Stop previous voice
+            speechSynthesis.cancel();
+            let voice = new SpeechSynthesisUtterance(`hahahahahahh`);
+            // Language
+            voice.lang = "en-US";
+            // Speed
+            voice.rate = 1;
+
+            // Voice pitch
+            voice.pitch = 1;
+
+            // Volume
+            voice.volume = 1;
+            // Speak
+            speechSynthesis.speak(voice);
+
+        }
+
+        function stopSpeak() {
+            speechSynthesis.cancel();
+        }
+
+    </script>
+
+</body>
+
+</html>

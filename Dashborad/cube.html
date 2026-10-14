@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Load Tailwind v4 browser runtime -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+    <div class="flex items-start justify-start min-h-screen">
+        
+        <!-- SIDEBAR -->
+        <nav class="sidebar min-h-screen w-[230px] bg-blue-600 flex flex-col items-center justify-start py-8 px-4 shadow-md">
+            <ul class="menu w-full flex flex-col gap-2">
+                <!-- Added "flex items-center" and text styles to the <a> elements for smooth links -->
+                <li><a href="" class="active block w-full px-4 py-2 text-white font-medium text-center rounded-sm transition-colors active:bg-[#4407b7ec]">Home</a></li>
+                <li><a href="" class="block w-full px-4 py-2 text-blue-100 hover:text-white hover:bg-blue-700 font-medium text-center rounded-sm transition-colors active:bg-[#4407b7ec]">About</a></li>
+                <li><a href="" class="block w-full px-4 py-2 text-blue-100 hover:text-white hover:bg-blue-700 font-medium text-center rounded-sm transition-colors active:bg-[#4407b7ec]">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1 p-8 flex flex-col items-start gap-6">
+            
+            <!-- OPEN TRIGGER BUTTON -->
+            <button id="Button-open" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-md shadow-sm transition-colors cursor-pointer">
+                Add items
+            </button>
+        
+            <form action="" id="form-product" class="hidden w-[300px] h-[500px] bg-aliceblue border border-gray-200 shadow-[2px_2px_2px_2px_rgba(0,0,0,1)] rounded-md flex items-center justify-center p-6"> 
+                <div class="flex flex-col gap-3 w-full">
+                    <input type="text" placeholder="Product Name" class="border border-gray-300 rounded px-3 py-1.5 focus:outline-blue-500 bg-white">
+                    <input type="text" placeholder="Price" class="border border-gray-300 rounded px-3 py-1.5 focus:outline-blue-500 bg-white">
+                    <input type="text" placeholder="Category" class="border border-gray-300 rounded px-3 py-1.5 focus:outline-blue-500 bg-white">
+                    <input type="text" placeholder="Description" class="border border-gray-300 rounded px-3 py-1.5 focus:outline-blue-500 bg-white">
+                    
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded mt-2 cursor-pointer transition-colors">+ Add Products</button>
+                    <button type="button" id="Button-cancel" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 rounded cursor-pointer transition-colors">Cancel</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<script>
+    const menuLink = document.querySelectorAll('.menu li a')
+    const btn_open = document.getElementById('Button-open')
+    const btn_cancel = document.getElementById('Button-cancel')
+    const form_product =  document.getElementById('form-product')
+    
+    // Sidebar Navigation Highlight Toggle
+    menuLink.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            menuLink.forEach(items => {
+                itpems.classList.remove('bg-[#4407b7ec]', 'text-white');
+                items.classList.add('text-blue-100', 'hover:bg-blue-700');
+            });
+            this.classList.add('bg-[#4407b7ec]', 'text-white');
+            this.classList.remove('text-blue-100', 'hover:bg-blue-700');
+        });
+    });
+
+    // Handle Form Visibility using Tailwind's 'hidden' and 'flex' states
+    btn_open.addEventListener("click", function() {
+        form_product.classList.remove('hidden');
+    });
+
+    btn_cancel.addEventListener("click", function() {
+        form_product.classList.add('hidden');
+    });
+</script>
+</html>

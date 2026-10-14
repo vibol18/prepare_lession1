@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .active-btn{
+            background: blue;
+            box-shadow: 0px 0px 12px 0px whitesmoke;
+            border-radius: 20px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;  
+        }
+        .menu{
+            display: flex;
+            list-style-type: none;
+            gap: 20px;
+            height: 50px;
+            width: 700px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 13px 4px rgb(212, 212, 212);
+            border-radius: 30px;
+        }
+        .menu a{
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+            color: rgb(183, 12, 12);
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+    <ul class="menu">
+    <li class="active-btn"><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+    </nav>
+</body>
+<script>
+   const link = document.querySelectorAll('.menu li ')
+   
+   link.forEach( l=> {
+    l.addEventListener("click",function(e){
+        e.preventDefault();
+        link.forEach(items=>{
+            items.classList.remove('active-btn');
+        });
+
+        this.classList.add('active-btn');
+    })
+   });
+</script>
+</html>

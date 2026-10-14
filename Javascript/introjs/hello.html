@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cart{
+           box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            width: 200px;
+            display: none;
+        }
+        .sign-in{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navber" id="navbar" style="display: none;"></nav>
+    <form action="" id="forminput">
+        <input type="number" id="size">
+        <button type="submit">Submit</button>
+    </form>
+     <button onclick="opencart()">open</button>
+    <div class="cart" id="cart">
+        <button onclick="cancel()">Cancel</button>
+       
+        <div class="sign-in">sign in</div>
+        <p>Get access to more learning features</p>
+        <p>Don't have an account? <a href="">Register</a></p>
+    </div>
+    <div class="message" id="message">hello</div>
+    <div id="output">
+        
+    </div>
+</body>
+<script src="./intro1.js"></script>
+</html>

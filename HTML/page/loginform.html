@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        min-height: 100vh;
+        background-color: aqua;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginform {
+        background-color: white;
+        width: 470px;
+        height: 550px;
+        border-radius: 20px;
+        box-shadow: 1px 1px 2px 2px blueviolet;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginform .logo-container {
+        margin-top: 30px;
+        background-color: rgb(15, 201, 226);
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px black;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-container #icon {
+        color: black;
+    }
+
+    .input_button {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .input-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid gray;
+    }
+
+    .input-box i {
+        margin-right: 10px;
+        color: gray;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        background: transparent;
+    }
+
+    .input-box:focus-within {
+        border-bottom-color: blue;
+    }
+
+    .button {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .btn-submit {
+        background-color: black;
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+
+        font-size: 15px;
+    }
+
+    .button .btn-submit {}
+</style>
+
+<body>
+    <form class="loginform" id="loginform">
+        <div id="message">h</div>
+        <div class="logo-container">
+            <i id="icon" class="fa-solid fa-right-from-bracket"></i>
+        </div>
+        <div class="title">
+            <h3>Sign in With Email</h3>
+            <p>make sure u has accout</p>
+        </div>
+        <div class="input_button">
+            <div class="input-box">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" placeholder="Enter Username" id="name" name="name">
+            </div>
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" name="password" id="password" placeholder="Enter Password">
+            </div>
+        </div><br>
+        <a href="" align="start">forgot password??</a>
+        <div class="button">
+            <button class="btn-submit">Get Started</button>
+            <p>or Sign in with</p>
+        </div>
+        <div class="socialmedia">
+            <a href="">Facebook</a>
+            <a href="">Telegram</a>
+            <a href="">Apple Id</a>
+        </div>
+    </form>
+   
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const message = document.getElementById('message');
+    const form = document.getElementById('loginform');
+
+    message.innerText = "";
+
+    const users = JSON.parse(localStorage.getItem("user")) || [];
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("name").value;
+        const password = document.getElementById("password").value;
+
+        const user = {
+            name: username,
+            password: password
+        };
+
+        if (username === "vibol" && password === "123") {
+
+            users.push(user);
+
+            localStorage.setItem(
+                'user',
+                JSON.stringify(users)
+            );
+
+            // 1. Show SweetAlert first
+            await Swal.fire({
+                title: "Good job!",
+                text: "Login successfully!",
+                icon: "success",
+                confirmButtonText: "Continue"
+            });
+
+            // 2. Go to dashboard after user clicks Continue
+            window.location.href = "./dashborad.html";
+
+        } else {
+
+            message.innerHTML = `
+                <div class="message"
+                    style="
+                        background-color: red;
+                        border-radius: 5px;
+                        width: 400px;
+                        margin-top: 20px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                    ">
+                    Invalid username or password
+                </div>
+            `;
+        }
+    });
+</script>
+</html>
