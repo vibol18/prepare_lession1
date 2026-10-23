@@ -1,0 +1,24 @@
+
+[
+  {
+    "id": 1,
+    "img":"https://media.wired.com/photos/69be039cf062c9cdcba42e33/3:2/w_2560%2Cc_limit/macbook-air-m5-03.JPG",
+    "name": "Laptop",
+    "price": 500,
+    "qty": 3
+  },
+  {
+    "id": 2,
+    "name": "Mouse",
+    "price": 15,
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w2AhxY5az7ug6kpx4TuvahtJtu1LOW73d-zypeRPiw&s=10",
+    "qty": 10
+  },
+  {
+    "id": 3,
+    "name": "Keyboard",
+    "price": 25,
+    "qty": 5,
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEjanxMpmZFLksG-eQen0RupVL4WMsaGvxkchcUSM9iw&s=10"
+  }
+]

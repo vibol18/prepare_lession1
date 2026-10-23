@@ -3,9 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root{
+    --danger:red;
+    --info:blue;
+    --success:green,
+
+}
 
 .navbar {
     display: flex;
+    background-color: var(--danger);
     justify-content: space-between;
     align-items: center;
 }

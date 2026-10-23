@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .sidebar{
+            width: 268px;
+            padding: 24px 16px;
+            height: 100vh;
+            box-shadow: 0 0 10px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            font-family: arial,Sans-serif;
+            left: 0;
+        }
+        .sidebar .menu-title{
+            margin-bottom: 12px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-transform: uppercase;
+            color: gray;
+            cursor: pointer;
+        }
+        .sidebar .logo{
+            font-weight: 700;
+            font-size: 22px;
+            color: gray;
+        }
+        .sidebar ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+           margin-bottom: 5px;
+        }
+        .sidebar ul li a{
+            padding: 11px 12px;
+            align-items: center;
+            display: flex;
+            gap: 12px;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            color: gray;
+            transition: all 0.2s ease;
+        }
+        .sidebar ul li a:hover{
+            background: gray;
+            color: aliceblue;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">My Dashboard</div>
+        <div>
+            <p class="menu-title">Main Menu</p>
+            <ul>
+                <li>
+                    <a href="" onclick="changpage('')">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-users"></i>
+                        Students
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-box"></i>
+                        Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Analytics
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    function changpage(page){
+        window.location.href = page;
+    }
+</script>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>MyDashboard</span>
+        </a>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <nav class="menu">
+            <a href="#dashboard" class="menu-link active" data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#students" class="menu-link" data-page="students">
+                <i class="fa-solid fa-users"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="#products" class="menu-link" data-page="products">
+                <i class="fa-solid fa-box"></i>
+                <span>Products</span>
+            </a>
+
+            <a href="#orders" class="menu-link" data-page="orders">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Orders</span>
+            </a>
+
+            <a href="#analytics" class="menu-link" data-page="analytics">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+
+            <a href="#settings" class="menu-link" data-page="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <a href="#logout" class="logout" id="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="topbar">
+            <button class="icon-btn" id="menuToggle"
+                    aria-label="Toggle sidebar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <input type="search" id="searchInput" placeholder="Search...">
+
+            <div class="profile">
+                <i class="fa-regular fa-bell"></i>
+                <div class="avatar">V</div>
+                <span>Vibol</span>
+            </div>
+        </header>
+
+        <main class="content" id="pageContent">
+            <!-- JavaScript renders the selected page here -->
+        </main>
+
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

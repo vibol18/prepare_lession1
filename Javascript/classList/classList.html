@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            background: blue;
+        }
+        .love{
+            background: pink;
+            text-align: center;
+            content: icon;
+        }
+        .title{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">title</h1>
+    <button id="add">Add ClassList</button>
+    <button  onclick="removeClasList()">Remove</button>
+    <button onclick="loveMe()">if u love me</button>
+</body>
+<script>
+const title = document.getElementById("title")
+
+const add = document.getElementById("add")
+const remove = document.getElementById("remove")
+add.addEventListener("click",function(){
+    title.classList.add("active")
+})
+
+function removeClasList(){
+     title.classList.remove("active")
+}
+function loveMe(){
+    title.classList.replace("active","love")
+    title.innerHTML="B slanh Mei meii";
+}
+
+</script>
+</html>

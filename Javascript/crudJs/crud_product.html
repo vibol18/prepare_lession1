@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        #product_form {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5 ">
+        <button type="button" class="btn btn-primary" onclick="add_form()">+Add Products</button>
+        <form action="" id="product_form" class="bg-dark w-50 rounded-2">
+            <div class="p-5 ">
+                <input type="text" id="pro_name" name="pro_name" class="form-control mt-2" required placeholder="name">
+                <input type="number" id="price" name="price" class="form-control mt-2" required placeholder="">
+                <input type="number" id="qty" name="qty" class="form-control mt-2 " required>
+                <!-- <input type="text" class="form-control mt-2"> -->
+            </div>
+            <button id="button" class="btn btn-primary" type="submit">Add Products</button>
+            <button type="button" onclick="cancel()" class="btn btn-danger">Cancel</button>
+        </form>
+
+        <table class="table">
+            <tr class="table-active">
+                <th>id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Action</th>
+            </tr>
+            <tbody id="output">
+                <tr>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+<script>
+    const button = document.getElementById("button")
+    const output = document.getElementById("output")
+    let products = [];
+    let editId = null;
+    console.log(products);
+
+    const formProduct = document.getElementById("product_form")
+    function open_form() {
+        formProduct.style.display = "block"
+    }
+    function add_form() {
+        editId = null;
+        button.innerHTML = "Add "
+        open_form()
+    }
+
+    function cancel() {
+        formProduct.style.display = "none";
+        formProduct.reset();
+        editId = null;
+        button.innerHTML = "ADD";
+    }
+    formProduct.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("pro_name").value
+        const price = document.getElementById("price").value
+        const qty = document.getElementById("qty").value
+        if (editId === null) {
+            let pro = {
+                "id": Date.now(),
+                "name": name,
+                "price": price,
+                "qty": qty,
+            };
+            products.push(pro)
+        } else {
+            const pro = products.find(p => p.id === editId);
+            if (pro) {
+                pro.name = name,
+                    pro.price = price,
+                    pro.qty = qty
+            }
+            editId = null;
+        }
+        outputS();
+        formProduct.reset();
+        formProduct.style.display = "none";
+        editId = null;
+        button.innerHTML = "Add Products";
+
+    })
+
+    function outputS() {
+        output.innerHTML = "";
+        products.forEach(pro => {
+            output.innerHTML += `
+        <tr class="table-active">
+                <td>${pro.id}</td>
+               <td>${pro.name}</td>
+                <td>$${pro.price}</td>
+                <td>${pro.qty}</td>
+                <td>
+                    <button class="btn btn-primary" onclick="update(${pro.id})">Edith</button>
+                    <button class="btn btn-danger" onclick="delete_products(${pro.id})">delete</button>
+                </td>
+        </tr>
+    `;
+        })
+    }
+    function update(id) {
+        const pro = products.find(p => p.id == id);
+        if (pro) {
+            editId = id;
+            const name = document.getElementById("pro_name").value = pro.name;
+            const price = document.getElementById("price").value = pro.price
+            const qty = document.getElementById("qty").value = pro.qty
+            button.innerHTML = "Update";
+            open_form()
+        }
+
+    }
+    function delete_products(id) {
+        const confirmDel = confirm("Are you sure To delete This product" + id)
+        if (confirmDel) {
+            products =products.filter(p => p.id !== id);
+            outputS();
+        }
+    }
+
+</script>
+
+</html>
